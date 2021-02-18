@@ -5,7 +5,8 @@ module.exports.run = async (TTEOGBOT, message) => {
         embed.setColor("RANDOM")
         embed.setTitle("떡봇 초대링크")
         embed.setDescription("[여기](https://discord.com/oauth2/authorize?client_id=764644897591656449&permissions=8&scope=bot)를 클릭하면 초대하실 수 있어요!")
-    message.channel.send(embed)
+        embed.setTimestamp()
+        message.channel.send(embed)
 }
 
 exports.callSign = ['초대링크', 'invitelink', '초대', 'invite']

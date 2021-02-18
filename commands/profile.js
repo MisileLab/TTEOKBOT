@@ -7,7 +7,6 @@ module.exports.run = async (bot, message) => {
             embed.setAuthor(message.author.username, message.author.avatarURL())
             embed.setImage(user.displayAvatarURL({ size: 2048, dynamic: true }))
             embed.setColor("RANDOM")
-            embed.setFooter("기본 프로필 일 경우 사진이 보이지 않아요!")
             message.channel.send(embed)
     }
     let embed = new (discord.MessageEmbed)

@@ -1,12 +1,6 @@
 const Discord = require('discord.js')
 const erro = require('../utils/embed.js')
 const config = require("../data/config.json")
-const sqlite3 = require('sqlite3').verbose()
-const path = require('path')
-const dbPath = path.resolve(__dirname, '../data/data.db')
-const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE, (err) => {
-    if(err) return console.log(err)
-})
 
 module.exports.run = async (TTEOGBOT, message, query) => {
 	if(config.owners.some(word => message.author.id.includes(word))) {

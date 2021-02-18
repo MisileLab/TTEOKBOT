@@ -4,7 +4,7 @@ exports.run = async (TTEOGBOT, message, channel, msg, edit) => {
 
 }
 
-exports.callSign = ['재부팅', 'restart', 'rs', '리부트', '재시작']
+exports.callSign = ['재부팅', 'restart', 'r', '리부트', '재시작']
 exports.helps = {
     description: '봇을 재부팅합니다\n',
     uses: '재부팅'

@@ -2,13 +2,15 @@ const Discord = require("discord.js")
 const translate = require("@k3rn31p4nic/google-translate-api");
 const config = require('../data/config.json')
 
-module.exports.run = async(client, message, query) => {
-    let language = query.args[0];
-    let text = query.split(" ")
-    console.log(query.args)
+
+module.exports.run = async(client, message) => {
+    const args = message.content.slice(" ").split(" ")
+    let language = args[1];
+    const text = args.slice(2)
+
     if(!language) return message.channel.send("T_번역 [번역할 언어] [바꿀 말]")
-    if (language.length !== 2) return message.reply("언어는 별칭 2자 여야합니다. 예시 : `korean > ko");
-    if(!text) return message.reply("무슨 말을 번역하시겠습니까?")
+    if (language.length !== 2) return message.reply("언어는 별칭 2자 여야합니다. 예시 : korean > ko");
+    if(!text) return message.channel.send("무슨 말을 번역하시겠습니까?")
 
     const result = await translate(text, { to:language });
 

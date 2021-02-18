@@ -66,8 +66,7 @@ module.exports.run = async (TTEOGBOT, message, query) => {
                     } else {
                         th.delete()
                     if (collected.array()[0].emoji.name === "2️⃣") {
-                        message.channel.send({ embed: help }).then((a, collected) => a.react("❌"))
- 
+                        message.channel.send({ embed: help })
                     }
                     if (collected.array()[0].emoji.name === "❌") {
                         th.delete()

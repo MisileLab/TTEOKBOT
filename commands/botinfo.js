@@ -9,11 +9,11 @@ module.exports.run = async (client, message, args) => {
     .setColor('RANDOM')
     .addFields(
         {
-            name: '봇 태그',
+            name: '📎봇 태그',
             value: client.user.tag,
         },
         {
-            name: '봇 ID',
+            name: '🆔봇 ID',
             value: client.user.id,
         },
         {

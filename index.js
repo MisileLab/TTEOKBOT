@@ -7,13 +7,12 @@ const sqlite3 = require('sqlite3')
 const { Collection } = require('discord.js')
 const Discord = require('discord.js')
 const client = new Discord.Client
-const db = new sqlite3.Database('./data/data.db', sqlite3.OPEN_READWRITE, (err) => { if (err) console.log(err) });
-const TTEOGBOT = new Tteogbot(config, db)
+const TTEOGBOT = new Tteogbot(config)
 require('./utils/eventLoader')(TTEOGBOT);
 
 const prefix = config.prefix;
 
-client.snipes = new Map()
+client.snipes = new Collection();
 
 TTEOGBOT.on('message', async message => {
     if(message.author.bot) return

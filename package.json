@@ -7,6 +7,7 @@
     "discord.js-commando": "^0.12.2",
     "git": "^0.1.5",
     "google-translate-api": "^2.3.0",
+    "images-scraper": "^6.0.0",
     "koreanbots": "^2.0.9",
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.33",
@@ -14,6 +15,7 @@
     "pm2": "^4.5.4",
     "shard": "^1.1.0",
     "split": "^1.0.1",
-    "sqlite3": "^5.0.1"
+    "sqlite3": "^5.0.1",
+    "weather-js": "^2.0.0"
   }
 }

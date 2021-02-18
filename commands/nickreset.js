@@ -6,32 +6,22 @@ module.exports.run = async(client, message) => {
     const member = message.mentions.members.first() || message.member;
     const oldName = member.displayName;
 
-    const args = message.content.slice(" ").split(" ")
-
-    if(!member) return error.wrongcmd(message, `T_닉네임 [@별명을 바꿀 사용자] [바꿀 이름]`);
-
-    const arguments = args.slice(2).join(" ")
-
-    if(!arguments) return error.wrongcmd(message, `T_닉네임 [@별명을 바꿀 사용자] [바꿀 이름]`);
+    if(!member) return error.wrongcmd(message, `T_닉리셋 [@별명을 바꿀 사용자]`);
 
     const Embed = new MessageEmbed()
-    .setTitle("별명이 바뀌었습니다!")
+    .setTitle("별명이 삭제되었습니다!")
     .setColor("RANDOM")
     .addFields(
         {
-            name: '멤버',
+            name: '삭제된 멤버',
             value: `${member.user.username}`
         },
         {
-            name: '이전이름',
+            name: '이전 이름',
             value: `${oldName}`,
         },
         {
-            name: '새 별명',
-            value: `${arguments}`,
-        },
-        {
-            name: '바꾼 사람',
+            name: '지운 사람',
             value: `${message.author}`,
         }
     )
@@ -40,17 +30,17 @@ module.exports.run = async(client, message) => {
     .setTimestamp();
 
     try {
-        member.setNickname(arguments)
+        member.setNickname(null)
     } catch(err) {
-        message.channel.send(
-            "권한이 없습니다."
+        message.reply(
+            "권한이 없습니다"
         )
         message.channel.send(Embed)
     }
 }
 
-exports.callSign = ['닉네임', '별명', 'nickname', 'nick', '닉']
+exports.callSign = ['닉네임리셋', '별명리셋', 'nickreset', 'nickrs', '닉초기화', '닉리셋', '닉네임초기화', '별명초기화']
 exports.helps = {
-description: '태그된 사용자의 닉네임을 바꿉니다.\n',
-uses: '닉네임'
+description: '태그된 사용자의 닉네임을 리셋합니다.\n',
+uses: '닉리셋'
 }
