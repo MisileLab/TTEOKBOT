@@ -1,5 +1,6 @@
-const figlet = require('figlet');
 const Discord = require('discord.js');
+const figlet = require('figlet');
+const error = require('../utils/embed')
 
 module.exports.run = async (TTEOGBOT, message) => {
     const noText = new Discord.MessageEmbed()
@@ -11,14 +12,13 @@ module.exports.run = async (TTEOGBOT, message) => {
     const args = message.content.slice(" ").split(" ")
     if(!args[1]) return message.channel.send(noText);
     
-    msg = args.slice(1).join(" ");
+    p = args.slice(1).join(" ");
     
-    figlet.text(msg, function (err, data){
+    figlet.text(p, function (err, data){
         if(err){
-            console.log('**오류가 발생하였습니다!**');
             message.channel.send('**오류가 발생하였습니다!**')
         }
-        if(data.length > 2000) return message.channel.send('2000자 미만의 글자만 변환할 수 있습니다')
+        if(2000 < data.length) return message.channel.send('ERROR!\n2000자 미만의 글자만 변환할 수 있습니다')
     
         message.channel.send('```' + data + '```')
      })
