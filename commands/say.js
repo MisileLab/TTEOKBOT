@@ -22,5 +22,5 @@ module.exports.run = async (TTEOGBOT, message, query) => {
 exports.callSign = ['say', '말해', '말해줘']
 exports.helps = {
     description: '떡봇가 당신의 말을 대신 말합니다.\n',
-    uses: '말해'
+    uses: '말해 [텍스트]'
 }

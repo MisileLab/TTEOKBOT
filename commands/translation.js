@@ -8,7 +8,7 @@ module.exports.run = async(client, message) => {
     let language = args[1];
     const text = args.slice(2)
 
-    if(!language) return message.channel.send("T_번역 [번역할 언어] [바꿀 말]")
+    if(!language) return message.channel.send("T_번역 <번역할 언어> <바꿀 말>")
     if (language.length !== 2) return message.reply("언어는 별칭 2자 여야합니다. 예시 : korean > ko");
     if(!text) return message.channel.send("무슨 말을 번역하시겠습니까?")
 
@@ -27,5 +27,5 @@ message.channel.send(Embed)
 exports.callSign = ['번역', '번역기', 'tr', 'translation']
 exports.helps = {
 description: '봇이 원하는 말을 번역해줍니다!\n',
-uses: '번역'
+uses: '번역 <번역할 언어> <바꿀말>'
 }

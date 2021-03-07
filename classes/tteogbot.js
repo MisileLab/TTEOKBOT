@@ -28,7 +28,7 @@ module.exports = class TTEOGBOT extends Discord.Client {
         const commands = require(join(__dirname, './', config.commands))
         Object.keys(commands).forEach(k => {
             const command = commands[k]
-            console.log(`${config.commands.split(/\\|\//).pop()}.${k} loaded`)
+            console.log(`${config.commands.split(/\\|\//).pop()}.${k} 가 로드됨`)
             command.callSign.forEach(c => {
                 this.commands.set(c, command)
             })

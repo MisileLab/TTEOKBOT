@@ -5,7 +5,7 @@ module.exports.run = async (TTEOGBOT, message, query) => {
     let filter = (reaction, user) => (reaction.emoji.name === '❌' || reaction.emoji.name === '⭕') && user.id === message.author.id
     const text = query.message.slice(query.command.length + 1)
     if(text === undefined || text === "") {
-        return error.wrongcmd(message, `T_피드백 [할말]`)
+        return error.wrongcmd(message, "`T_피드백 [할말]`")
     } else {
 	    let embed = new (discord.MessageEmbed)
 		embed.setColor("RANDOM")
@@ -29,7 +29,7 @@ module.exports.run = async (TTEOGBOT, message, query) => {
 		                    embed2.addField(`개발자에게 아래 메세지를 전달했어요.`, text)
 		                th.edit(embed2)
 		            } catch (err) {
-		                message.channel.send(`<@${message.author.id}> :< 피드백을 전송하던 중 오류가 발생했어요..`)
+		                message.channel.send(`<@${message.author.id}> :< 피드백을 전송하던 중 오류가 발생했네요...`)
 		            }
 		        } else {
 		            let embed3 = new (discord.MessageEmbed)
@@ -46,5 +46,5 @@ module.exports.run = async (TTEOGBOT, message, query) => {
 exports.callSign = ['feedback', 'issue', '피드백', '문의', '건의']
 exports.helps = {
     description: '개발자에게 피드백을 전송합니다.\n',
-    uses: '피드백'
+    uses: '피드백 [할말]'
 }

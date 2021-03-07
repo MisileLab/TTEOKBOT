@@ -18,5 +18,5 @@ module.exports.run = async (TTEOGBOT, message, query) => {
 exports.callSign = ['select', '골라', '골라줘']
 exports.helps = {
     description: '단어 중 랜덤하게 하나를 떡봇가 고릅니다.\n',
-    uses: '골라'
+    uses: '골라 <단어1> <단어2>...'
 }

@@ -2,30 +2,43 @@ const { MessageEmbed } = require("discord.js")
 const Discord = require('discord.js')
 const commands = require('./')
 
-
 module.exports.run = async (TTEOGBOT, message, query) => {
-    const user = message.member.user
-    const help = {
-        fields: [
+    const help = new Discord.MessageEmbed() 
+    .setTitle("떡봇 사용법 \n < > 는 필수, [ ] 는 선택, / 는 하나 선택입니다")
+    .setColor("#4d93ff")
+    .setDescription("떡봇의 도움말이에요! 피드백이 있다면 T_피드백 [할말]로 문의주세요!")
+    .addFields() 
+    .addFields(
         {
-            name: "접두사",
+            name: '접두사',
             value: "T_",
+        },
+        {
+            name: 'MODERATION',
+            value: "`밴`, `언밴`, `기브어웨이`, `기브어웨이삭제`, `기브어웨이리롤`, `킥`, `채널설정`, `입장`, `퇴장`, `뮤트`, `언뮤트`, `투표`, `경고`, `경고초기화`, `닉네임변경`, `닉네임초기화`, `청소`",
+        },
+        {
+            name: 'Utility',
+            value: "`계산`, `답장`, `피드백`, `메모`, `레벨`, `기호`, `이미지`, `프로필`, `멜론`, `스포티파이`, `핑`, `경고확인`, `타이머`, `번역`, `날씨`, `골라`, `말해`, `반전`",
+        },
+        {
+            name: 'INFO',
+            value: "`서버정보`, `유저정보`, `봇정보`, `코로나`, `한강`, `인스타프로필`",
+        },
+        {
+            name: 'GAME',
+            value: "`주사위`"
+        },
+        {
+            name: 'TEXT',
+            value: "`개발자`, `초대`, `떡`, `아이유`, `오픈소스`"
+        },
+        {
+            name: 'ADMIN',
+            value: "`재부팅`, `실행`, `리로드`, `블랙리스트`, `콘솔`"
         }
-        ],
-        color: "RANDOM",
-        title: "떡봇 사용법",
-        description: "< > 는 필수, [ ] 는 선택, / 는 하나 선택입니다."
-    }
-
-    let keys = Object.keys(commands)
-    for (k of keys) {
-        if (commands[k].helps && commands[k].helps.description) help.fields.push({
-            name: 'T_' + commands[k].helps.uses, 
-            value: commands[k].helps.description,
-            inline: false
-        })
-    }
-    
+    )
+    const user = message.member.user 
     let p = new Discord.MessageEmbed()
         .setTitle("떡봇 도움말")
         .setColor("RANDOM")
@@ -45,7 +58,6 @@ module.exports.run = async (TTEOGBOT, message, query) => {
         .setThumbnail(user.displayAvatarURL())
         .setColor("RANDOM");
 
-
     
     let embed = new Discord.MessageEmbed()
       let filter = (reaction, user) => (reaction.emoji.name === "1️⃣" || reaction.emoji.name === "2️⃣" || reaction.emoji.name === "❌") && user.id === message.author.id
@@ -58,26 +70,21 @@ module.exports.run = async (TTEOGBOT, message, query) => {
                 }).then(async(collected) => {
                     if (collected.array()[0].emoji.name === "1️⃣") {
                         th.delete()
-                        if (keys.length === keys.indexOf(k) + 1) {
                             message.channel.send(`<@${message.author.id}> DM으로 도움말을 전송하였어요!`)
-                            message.author.send({ embed: help })
-                        }
-
+                            message.author.send(help)
                     } else {
                         th.delete()
                     if (collected.array()[0].emoji.name === "2️⃣") {
-                        message.channel.send({ embed: help })
+                        message.channel.send(help)
                     }
                     if (collected.array()[0].emoji.name === "❌") {
                         th.delete()
-                        message.channel.send(ab)
+                        message.channel.send(d)
                     }
                     }
                 
                 }) 
-            })
-
-        
+})
 }
 
 exports.callSign = ['help', 'Help', '도움', '도움말']

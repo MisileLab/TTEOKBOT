@@ -1,14 +1,20 @@
 const Discord = require('discord.js')
 const black = require("../data/black.json")
 let request = require('request');
+const db = require('quick.db')
 let headers = {'Authorization': 'Basic a2V5OmZjYWY5MjZjZDM1YTg4M2IwMDM2NmM4MmNmNDkxMzEy', 'Content-Type': 'application/json'};
 const config = require('../data/config.json')
 
 module.exports = async message => {
+    if(message.channel.type === "dm") {
+        return message.author.send("봇 명령어는 채널에서 사용해주세요.");
+    } 
+    let value = db.get(`블랙리스트value`)
+    let balckuser = db.get(`블랙리스트_${value}`)
 	if(message.content.startsWith(config.prefix)) console.log(`${message.guild.name} - ${(message.guild.id)} Message\n${message.author.username}: ${message.content}\n`)
     if(message.content.startsWith(config.prefix) && black.users.some(g => message.author.id.includes(g)))  return message.reply("부적절한 어휘 사용 및 기타 이유로 명령어 사용이 제한된 유저입니다.")
     if(message.content.startsWith(config.prefix) && black.servers.some(g => message.guild.id.includes(g))) return message.reply("부적절한 어휘 사용 및 기타 이유로 명령어 사용이 제한된 서버입니다.")
-
+    if(message.author.id == `${balckuser}`) return;
     if(message.content.startsWith(config.prefix)) {
         const text = message.content.split(config.prefix)[1]
         const command = message.content.split(config.prefix)[1].split(' ')[0]

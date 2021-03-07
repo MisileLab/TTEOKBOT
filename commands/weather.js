@@ -36,5 +36,5 @@ exports.run = async (TTEOGBOT, message) => {
 exports.callSign = ['날씨', 'weather', 'wh']
 exports.helps = {
     description: '지역에 날씨를 보여드립니다.\n',
-    uses: '날씨'
+    uses: '날씨 [지역]'
 }

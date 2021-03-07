@@ -1,5 +1,4 @@
 const { MessageEmbed } = require('discord.js')
-const Commando = require('discord.js-commando')
 
 module.exports.run = async (TTEOGBOT, message, client) => {
     const { guild, channel } = message
@@ -45,5 +44,5 @@ module.exports.run = async (TTEOGBOT, message, client) => {
 exports.callSign = ['유저정보', '유저', 'userinfo', 'ui']
 exports.helps = {
     description: '태그된 사용자에 유저정보를 출력합니다\n',
-    uses: '유저정보'
+    uses: '유저정보 [@유저]'
 }

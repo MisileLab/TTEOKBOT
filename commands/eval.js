@@ -21,11 +21,11 @@ module.exports.run = async (TTEOGBOT, message, query) => {
 						output = require('util').inspect(output, {
 							depth: 0
 						})
+							depth: 0
 						
 					if(output.includes(TTEOGBOT.token))
 						output = output.replace(TTEOGBOT.token, "토큰")
-					if(output.length > 1010)
-						output = (output.slice(0, 1010)+"\n...")
+
 					
 					let embed = new (Discord.MessageEmbed)
 					embed.setColor("RANDOM")
@@ -37,6 +37,7 @@ module.exports.run = async (TTEOGBOT, message, query) => {
 					
 					if(error.includes(TTEOGBOT.token))
 						error = error.replace(TTEOGBOT.token, "토큰")
+				
 					
 					let embed = new (Discord.MessageEmbed)
 					embed.setAuthor(message.author.username, message.author.avatarURL())
@@ -45,7 +46,7 @@ module.exports.run = async (TTEOGBOT, message, query) => {
 					embed.setColor(config.red)
 					message.channel.send({ embed: embed })
 				})
-		}
+		} 
 	} else {
 		return erro.notdev(message)
 	}

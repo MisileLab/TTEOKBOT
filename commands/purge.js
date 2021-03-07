@@ -10,7 +10,7 @@ module.exports.run = async (TTEOGBOT, message, query) => {
     try {
         message.delete() // 청소 메세지 삭제
         message.channel.bulkDelete(purge)
-        message.channel.send(`<@${message.author.id}> ${purge}개의 메세지를 삭제하였습니다!`).then(msg => msg.delete({ timeout: 3000 }))
+        message.channel.send(`<@${message.author.id}> ${purge}개의 메세지를 삭제하였습니다! (이 메세지는 3초뒤 사라져요!)`).then(msg => msg.delete({ timeout: 3000 }))
     } catch {
         message.channel.send(`<@${message.author.id}> :< 오류가 발생했어요..`)
     }     
@@ -19,6 +19,6 @@ module.exports.run = async (TTEOGBOT, message, query) => {
 exports.callSign = ['청소', '삭제', 'purge', 'delete']
 exports.helps = {
     description: '메세지를 삭제합니다.\n최대 100까지만 가능하며, 14일이 지난 메세지는 삭제하지 못합니다.\n',
-    uses: '청소',
+    uses: '청소 [1~100]',
     permission: 'MANAGE_MESSAGES'
 }

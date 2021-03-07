@@ -1,0 +1,11 @@
+{
+    "discord.detailsDebugging": "디버그 {file_name}",
+    "discord.detailsIdling": "자리비움",
+    "discord.detailsEditing": "편집중 {file_name}",
+    "discord.largeImage": "{LANG} 파일 편집중",
+    "discord.largeImageIdling": "자리비움",
+    "discord.lowerDetailsDebugging": "디버깅 : {workspace}",
+    "discord.lowerDetailsEditing": "작업 공간 : {workspace}",
+    "discord.lowerDetailsIdling": "자리비움",
+    "discord.lowerDetailsNoWorkspaceFound": "작업 공간 없음"
+}

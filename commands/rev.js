@@ -14,5 +14,5 @@ module.exports.run = async (TTEOGBOT, message, query) => {
 exports.callSign = ['반전', 'rev']
 exports.helps = {
     description: '메세지를 반전시킵니다.\n',
-    uses: '반전'
+    uses: '반전 [텍스트]'
 }

@@ -3,11 +3,12 @@ const error = require('../utils/embed')
 
 exports.run = async (TTEOGBOT, message) => {
     const args = message.content.slice(" ").split(" ")
+    if (!message.member.hasPermission("ADMINISTRATOR")) return error.notper(message)
     const vote = args.slice(1).join(" ")
 
-    const regex = vote.match(/"[^"]+"|[\\S]+"[^"]+/g)
+    const regex = vote.match(/[^/]+|[\\S]+[^/]+/g)
 
-    if(!regex) return error.wrongcmd(message, `T_투표 "<1>""<2>""[3]"`)
+    if(!regex) return error.wrongcmd(message, "`T_투표 <1>/<2>/[3]...`")
     if(regex.length > 10) {
         return message.channel.send('9개까지의 투표만 할 수 있습니다')
     }
@@ -47,5 +48,5 @@ exports.run = async (TTEOGBOT, message) => {
 exports.callSign = ['투표', 'vote']
 exports.helps = {
     description: '봇이 투표를 합니다.\n',
-    uses: '투표'
+    uses: '투표 "<단어1>""<단어2>"[단어3]..."'
 }

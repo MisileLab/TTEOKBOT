@@ -1,63 +1,77 @@
-const discord = require('discord.js')
-const cheerio = require('cheerio')
-const request = require('request')
-var moment = require('moment')
-require('moment-timezone')
-moment.tz.setDefault("Asia/Seoul")
+const fetch = require('node-fetch');
+const Discord = require('discord.js')
 
 module.exports.run = async (TTEOGBOT, message) => {
-	message.channel.send(`<@${message.author.id}> 불러오는 중 이에요!`).then((th) => {
-		let url = 'http://ncov.mohw.go.kr/'
-		let url2 = 'https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query=%EC%9A%B0%ED%95%9C+%ED%8F%90%EB%A0%B4+%ED%99%95%EC%A7%84%EC%9E%90'
-		request(url, function(error, response, body) {
-			request(url2, function(error, response, body2) {
-		
-				const $ = cheerio.load(body)
-				const $2 = cheerio.load(body2)
-				let free = $2(".num")
-				
-				let colArr = $(".num")
-				let beforeArr = $(".before")
-			
-				let corona = colArr[0].children[0].next.data
-				let before = beforeArr[0].children[0].data
-				before = before.replace(/[^0-9]/g, '')
-				
-				let corona2 = colArr[1].children[0].data
-				let before2 = beforeArr[1].children[0].data
-				before2 = before2.replace(/[^0-9]/g, '')
-				
-				let corona3 = colArr[2].children[0].data
-				let before3 = beforeArr[2].children[0].data
-				before3 = before3.replace(/[^0-9]/g, '')
-				
-				let corona4 = colArr[3].children[0].data
-				let before4 = beforeArr[3].children[0].data
-				before4 = before4.replace(/[^0-9]/g, '')
-							
-				let corona5 = colArr[4].children[0].data
-				corona5 = corona5.replace(" ", "")
-				
-				let embed = new (discord.MessageEmbed)(body)
-					embed.setColor("RANDOM")
-					embed.setThumbnail("https://ifh.cc/g/ysQWd.png")
-					embed.setTitle("국내 코로나19 현황")
-					embed.setDescription(`${moment().format('YYYY-MM-DD')} 기준`)
-					embed.addField("확진자", `${corona}명 (+ ${before})`, true)
-					embed.addField("완치(격리 해제)", `${corona2}명 (+ ${before2})`, true)
-					embed.addField("치료 중", `${corona3}명 (+ ${before3})`, true)
-					embed.addField("사망", `${corona4}명 (+ ${before4})`, true)
-					embed.addField("누적 검사 수", `${corona5}`, true)
-					embed.addField("정보 출처", "네이버, 질병관리본부", true)
-					embed.setFooter("코로나19 감염이 의심되면 즉시 보건소 및 콜센터(전화1339)로 신고바랍니다.")
-				th.edit(`<@${message.author.id}> 현재 코로나19 현황이에요!`, { embed: embed })
-			})
+	const args = message.content.slice(" ").split(" ")
+	let countries = args.slice(1).join(" ");
+
+	let th = await message.channel.send(`<@${message.author.id}> 불러오는 중 이에요!`)
+	let tp = await message.channel.send("로딩중...")
+
+	const noArgs = new Discord.MessageEmbed()
+	.setTitle('누락 된 인수')
+	.setColor(0xFF0000)
+	.setDescription('`T_코로나 <나라이름>(영어로 해주세요)`')
+	.setTimestamp()
+
+	if(!args.slice(1).join(" ")) {
+		tp.delete()
+		th.delete()
+		return message.channel.send(noArgs);
+
+	}
+
+	if(args.slice(1).join(" ") === "all"){
+		fetch(`https://covid19.mathdro.id/api`)
+		.then(response => response.json())
+		.then(data => {
+			let confirmed = data.confirmed.value.toLocaleString()
+			let recovered = data.recovered.value.toLocaleString()
+			let deaths = data.deaths.value.toLocaleString()
+
+			const embed = new Discord.MessageEmbed()
+			.setTitle(`전세계 코로나-19 상황이에요!  🌎`)
+			.setColor("RANDOM")
+			.setThumbnail("https://ifh.cc/g/vPq3v7.jpg")
+			.setTimestamp()
+			.setFooter("코로나19 감염이 의심되면 즉시 보건소 및 콜센터(전화1339)로 신고바랍니다!")
+			.addField('확진자', confirmed)
+			.addField('치료됨', recovered)
+			.addField('사망', deaths)
+
+			th.delete()
+			tp.delete()
+			message.channel.send(embed)
+		}) 
+} else {
+		fetch(`https://covid19.mathdro.id/api/countries/${countries}`)
+		.then(response => response.json())
+		.then(data => {
+			let confirmed = data.confirmed.value.toLocaleString()
+			let recovered = data.recovered.value.toLocaleString()
+			let deaths = data.deaths.value.toLocaleString()
+
+			const embed = new Discord.MessageEmbed()
+			.setTitle(`**${countries}** 코로나-19 상황`)
+			.setColor("RANDOM")
+			.setThumbnail("https://ifh.cc/g/vPq3v7.jpg")
+			.setTimestamp()
+			.setFooter("코로나19 감염이 의심되면 즉시 보건소 및 콜센터(전화1339)로 신고바랍니다!")
+			.addField('확진환자', confirmed)
+			.addField('완치환자', recovered)
+			.addField('사망자', deaths)
+
+			th.delete()
+			tp.delete()
+			message.channel.send(embed)
+		}).catch(e => {
+			return message.channel.send('나라가 검색되지 않습니다')
 		})
-    })
+	}
 }
 
 exports.callSign = ['covid19', 'corona', '코로나', '우한폐렴']
 exports.helps = {
-    description: '현재 국내 COVID-19 현황을 보여줍니다.\n',
-    uses: '코로나'
+    description: '현재 COVID-19 현황을 보여줍니다.\n',
+    uses: '코로나 <국가>'
 }
