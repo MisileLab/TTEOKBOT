@@ -1,6 +1,5 @@
 /* user */
 module.exports.ping = require('./ping')
-module.exports.help = require('./help')
 module.exports.userinfo = require('./userinfo')
 module.exports.serverinfo = require('./serverinfo')
 module.exports.botinfo = require('./botinfo')
