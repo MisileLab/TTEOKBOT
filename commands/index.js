@@ -49,7 +49,6 @@ module.exports.channel = require('./channel')
 module.exports.join = require('./join')
 module.exports.slowmode = require('./slowmode')
 module.exports.quit = require('./quit')
-module.exports.vote = require('./vote')
 module.exports.purge = require('./purge')
 
 /* mod */
