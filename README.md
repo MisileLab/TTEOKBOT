@@ -28,8 +28,6 @@ eval(commands/eval.js) : [Wonderbot](https://github.com/wonderlandpark/wonderbot
 
 날씨(commands/weather.js) : [김실리](https://www.youtube.com/watch?v=MylCOm7v0ZY&t=49s)
 
-기호(commands/figlet.js) : [김실리](https://www.youtube.com/watch?v=cUYVArL9SI4)
-
 레벨(commands/xp.js) : [COLTZ](https://www.youtube.com/watch?v=RWk4QNL0tvg)
 
 뮤트(commands/mute.js) : [thesportstacker](https://www.youtube.com/watch?v=T2U1DRAW4J4&t=13s)
