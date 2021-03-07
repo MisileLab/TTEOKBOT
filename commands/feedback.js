@@ -20,7 +20,7 @@ module.exports.run = async (TTEOGBOT, message, query) => {
 		    }).then((collected) => { 
 		        if (collected.array()[0].emoji.name === '⭕') { 
 		            try {
-		                TTEOGBOT.users.fetch('761561385477341185').then((develop) => {
+		                TTEOGBOT.users.fetch('피드백 메세지를 받을 분의 ID').then((develop) => {
 		                    develop.send(`${message.member.user.tag} (${message.author.id})님의 피드백 메세지에요!\n\`${text}\``)
 		                })
 		                let embed2 = new (discord.MessageEmbed)
