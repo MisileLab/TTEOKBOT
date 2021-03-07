@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const black = require("../data/black.json")
 let request = require('request');
 const db = require('quick.db')
-let headers = {'Authorization': 'Basic a2V5OmZjYWY5MjZjZDM1YTg4M2IwMDM2NmM4MmNmNDkxMzEy', 'Content-Type': 'application/json'};
+let headers = {'Authorization': 'Authorization ID', 'Content-Type': 'application/json'};
 const config = require('../data/config.json')
 
 module.exports = async message => {
@@ -32,7 +32,7 @@ module.exports = async message => {
                 
 
             let options = {
-                url: 'https://builder.pingpong.us/api/builder/601f915de4b078d8739e3544/integration/v0.2/custom/a2V5OmZjYWY5MjZjZDM1YTg4M2IwMDM2NmM4MmNmNDkxMzEy',
+                url: 'https://builder.pingpong.us/api/builder/601f915de4b078d8739e3544/integration/v0.2/custom/API키',
                 method: 'POST',
                 headers: headers,
                 body: dataString
