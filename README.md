@@ -26,8 +26,6 @@ eval(commands/eval.js) : [Wonderbot](https://github.com/wonderlandpark/wonderbot
 
 번역(commands/translation.js) : [Choiril Official](https://www.youtube.com/watch?v=b1a1VsD_yfE&t=398s)
 
-투표(commands/vote.js) : [김실리](https://www.youtube.com/watch?v=j_kpM-gNStk)
-
 날씨(commands/weather.js) : [김실리](https://www.youtube.com/watch?v=MylCOm7v0ZY&t=49s)
 
 기호(commands/figlet.js) : [김실리](https://www.youtube.com/watch?v=cUYVArL9SI4)
