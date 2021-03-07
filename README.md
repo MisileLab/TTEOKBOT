@@ -13,6 +13,7 @@
 # 사용한 코드&오픈소스
 바탕코드 : (
     [미야봇](https://github.com/CwhiteKJ/Miya)(아카이브됨)
+    
     커스텀 클래스(classes/TTEOGBOT.js) : [SeoaBot](https://github.com/seoaapp/SeoaBot)
     
     index.js(./index.js) : [SeoaBot](https://github.com/seoaapp/SeoaBot)
