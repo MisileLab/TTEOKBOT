@@ -11,14 +11,15 @@
 떡봇에 오류가 발생하거나 문의할게 있으신가요? T_피드백 [할말]로 피드백을 주시면 언제나 환영입니다😊
 
 # 참조&오픈소스
-바탕코드 : [미야봇](https://github.com/CwhiteKJ/Miya)(아카이브됨)
+바탕코드 : ([미야봇](https://github.com/CwhiteKJ/Miya)(아카이브됨)
     
 커스텀 클래스(classes/TTEOGBOT.js) : [SeoaBot](https://github.com/seoaapp/SeoaBot)
     
 index.js(./index.js) : [SeoaBot](https://github.com/seoaapp/SeoaBot)
     
 eval(commands/eval.js) : [Wonderbot](https://github.com/wonderlandpark/wonderbot)
-  
+)
+
 이미지(commands/image.js) : [reconlx](https://www.youtube.com/watch?v=c7d8n5IkPSM)
 
 번역(commands/translation.js) : [Choiril Official](https://www.youtube.com/watch?v=b1a1VsD_yfE&t=398s)
