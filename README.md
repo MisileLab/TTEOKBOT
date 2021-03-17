@@ -29,3 +29,5 @@ eval(commands/eval.js) : [Wonderbot](https://github.com/wonderlandpark/wonderbot
 뮤트(commands/mute.js) : [thesportstacker](https://www.youtube.com/watch?v=T2U1DRAW4J4&t=13s)
 
 스나이프(commands/snipes.js) : [Salvage_Dev](https://www.youtube.com/watch?v=n0YSVcg9Z1g&t=390s)
+
+스포티파이(commands/spotify.js) : [Plexi Development](https://www.youtube.com/watch?v=O8PTV43vLdQ&t=151s)
