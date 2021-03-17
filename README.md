@@ -17,9 +17,6 @@ index.js(./index.js) : [SeoaBot](https://github.com/seoaapp/SeoaBot)
 eval(commands/eval.js) : [Wonderbot](https://github.com/wonderlandpark/wonderbot)
 
 )
-
-이미지(commands/image.js) : [reconlx](https://www.youtube.com/watch?v=c7d8n5IkPSM)
-
 번역(commands/translation.js) : [Choiril Official](https://www.youtube.com/watch?v=b1a1VsD_yfE&t=398s)
 
 날씨&기호(commands/weather.js) : [김실리](https://www.youtube.com/watch?v=MylCOm7v0ZY&t=49s)
