@@ -21,11 +21,9 @@ TTEOGBOT.giveaways = new GiveawaysManager(TTEOGBOT, {
     reaction : '🎉'
 })
 TTEOGBOT.snipes = new Discord.Collection();
-TTEOGBOT.spotify = new Array();
 
 TTEOGBOT.on('message', async message => {
     if(message.author.bot) return
-    if(message.channel.type === "dm") return;
     xp(message)
 
     function xp(message) {
@@ -57,7 +55,10 @@ TTEOGBOT.on('message', async message => {
     if(message.author.id == `${balckuser}`) {
         return message.reply('당신은 블랙리스트 유저입니다.\n건의사항은 누워서 떡먹기#5883에게 문의해주세요.')
     }
-
+    if(message.channel.type === "dm") {
+    return message.author.send("봇 명령어는 채널에서 사용해주세요.").catch(() => { return })
+    }
+    
     const query = {
         fullText: message.content,
         message: message.content.split(config.prefix)[1],
