@@ -1,6 +1,5 @@
 # 떡봇의 설명
-
-떡봇은 미야봇(JS버전)에 오픈소스를 바탕으로 명령어를 추가하였으며, , 타이머, 날씨, 유저정보, 번역 등
+떡봇은 미야봇(JS버전)에 오픈소스를 바탕으로 명령어를 추가하였으며, 타이머, 날씨, 유저정보, 번역 등
 여러 유틸리티 시스템을 구축하고 있습니다.
 
 # 떡봇의 대한 피드백
@@ -15,8 +14,6 @@
 index.js(./index.js) : [SeoaBot](https://github.com/seoaapp/SeoaBot)
     
 eval(commands/eval.js) : [Wonderbot](https://github.com/wonderlandpark/wonderbot)
-
-)
 
 번역(commands/translation.js) : [Choiril Official](https://www.youtube.com/watch?v=b1a1VsD_yfE&t=398s)
 
