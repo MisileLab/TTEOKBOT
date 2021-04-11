@@ -5,9 +5,6 @@ let headers = {'Authorization': 'Basic Key', 'Content-Type': 'application/json'}
 const config = require('../data/config.json')
 
 module.exports = async message => {
-  if(message.channel.type === "dm") {
-    return message.author.send("봇 명령어는 채널에서 사용해주세요.").catch(() => { return })
-  }
     let balckuser = db.get(`블랙리스트_${message.author.id}`)
     if(message.author.id === `${balckuser}`) {
        return;
